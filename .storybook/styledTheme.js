@@ -31,8 +31,8 @@ const styledTheme = {
     visitedRed: "#9a0000",
     yellowShadowDark: "#722900",
     yellowShadowMedium: "#b74300",
-    yellowShadowLight: "#f29005"
-  }
+    yellowShadowLight: "#f29005",
+  },
 };
 
 export default styledTheme;

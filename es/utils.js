@@ -1,13 +1,13 @@
-import PropTypes from 'prop-types'; // https://github.com/twbs/bootstrap/blob/v4.0.0-alpha.4/js/src/modal.js#L436-L443
+import PropTypes from "prop-types"; // https://github.com/twbs/bootstrap/blob/v4.0.0-alpha.4/js/src/modal.js#L436-L443
 
 export function getScrollbarWidth() {
-  var scrollDiv = document.createElement('div'); // .modal-scrollbar-measure styles // https://github.com/twbs/bootstrap/blob/v4.0.0-alpha.4/scss/_modal.scss#L106-L113
+  var scrollDiv = document.createElement("div"); // .modal-scrollbar-measure styles // https://github.com/twbs/bootstrap/blob/v4.0.0-alpha.4/scss/_modal.scss#L106-L113
 
-  scrollDiv.style.position = 'absolute';
-  scrollDiv.style.top = '-9999px';
-  scrollDiv.style.width = '50px';
-  scrollDiv.style.height = '50px';
-  scrollDiv.style.overflow = 'scroll';
+  scrollDiv.style.position = "absolute";
+  scrollDiv.style.top = "-9999px";
+  scrollDiv.style.width = "50px";
+  scrollDiv.style.height = "50px";
+  scrollDiv.style.overflow = "scroll";
   document.body.appendChild(scrollDiv);
   var scrollbarWidth = scrollDiv.offsetWidth - scrollDiv.clientWidth;
   document.body.removeChild(scrollDiv);
@@ -21,12 +21,12 @@ export function isBodyOverflowing() {
 }
 export function getOriginalBodyPadding() {
   var style = window.getComputedStyle(document.body, null);
-  return parseInt(style && style.getPropertyValue('padding-right') || 0, 10);
+  return parseInt(style && style.getPropertyValue("padding-right") || 0, 10);
 }
 export function conditionallyUpdateScrollbar() {
   var scrollbarWidth = getScrollbarWidth(); // https://github.com/twbs/bootstrap/blob/v4.0.0-alpha.6/js/src/modal.js#L433
 
-  var fixedContent = document.querySelectorAll('.fixed-top, .fixed-bottom, .is-fixed, .sticky-top')[0];
+  var fixedContent = document.querySelectorAll(".fixed-top, .fixed-bottom, .is-fixed, .sticky-top")[0];
   var bodyPadding = fixedContent ? parseInt(fixedContent.style.paddingRight || 0, 10) : 0;
 
   if (isBodyOverflowing()) {
@@ -39,7 +39,7 @@ export function setGlobalCssModule(cssModule) {
 }
 export function mapToCssModules(className, cssModule) {
   if (className === void 0) {
-    className = '';
+    className = "";
   }
 
   if (cssModule === void 0) {
@@ -47,9 +47,9 @@ export function mapToCssModules(className, cssModule) {
   }
 
   if (!cssModule) return className;
-  return className.split(' ').map(function (c) {
+  return className.split(" ").map(function (c) {
     return cssModule[c] || c;
-  }).join(' ');
+  }).join(" ");
 }
 /**
  * Returns a new object with the key/value pairs from `obj` that are not in the array `omitKeys`.
@@ -86,7 +86,7 @@ var warned = {};
 export function warnOnce(message) {
   if (!warned[message]) {
     /* istanbul ignore else */
-    if (typeof console !== 'undefined') {
+    if (typeof console !== "undefined") {
       console.error(message); // eslint-disable-line no-console
     }
 
@@ -95,7 +95,7 @@ export function warnOnce(message) {
 }
 export function deprecated(propType, explanation) {
   return function validate(props, propName, componentName) {
-    if (props[propName] !== null && typeof props[propName] !== 'undefined') {
+    if (props[propName] !== null && typeof props[propName] !== "undefined") {
       warnOnce("\"" + propName + "\" property of \"" + componentName + "\" has been deprecated.\n" + explanation);
     }
 
@@ -107,11 +107,11 @@ export function deprecated(propType, explanation) {
   };
 } // Shim Element if needed (e.g. in Node environment)
 
-var Element = typeof window === 'object' && window.Element || function () {};
+var Element = typeof window === "object" && window.Element || function () {};
 
 export function DOMElement(props, propName, componentName) {
   if (!(props[propName] instanceof Element)) {
-    return new Error('Invalid prop `' + propName + '` supplied to `' + componentName + '`. Expected prop to be an instance of Element. Validation failed.');
+    return new Error("Invalid prop `" + propName + "` supplied to `" + componentName + "`. Expected prop to be an instance of Element. Validation failed.");
   }
 }
 export var targetPropType = PropTypes.oneOfType([PropTypes.string, PropTypes.func, DOMElement, PropTypes.shape({
@@ -141,12 +141,12 @@ export var TransitionTimeouts = {
 // for distribution properly exclude these keys for nested child HTML attributes
 // since `react-transition-group` removes propTypes in production builds.
 
-export var TransitionPropTypeKeys = ['in', 'mountOnEnter', 'unmountOnExit', 'appear', 'enter', 'exit', 'timeout', 'onEnter', 'onEntering', 'onEntered', 'onExit', 'onExiting', 'onExited'];
+export var TransitionPropTypeKeys = ["in", "mountOnEnter", "unmountOnExit", "appear", "enter", "exit", "timeout", "onEnter", "onEntering", "onEntered", "onExit", "onExiting", "onExited"];
 export var TransitionStatuses = {
-  ENTERING: 'entering',
-  ENTERED: 'entered',
-  EXITING: 'exiting',
-  EXITED: 'exited'
+  ENTERING: "entering",
+  ENTERED: "entered",
+  EXITING: "exiting",
+  EXITED: "exited"
 };
 export var keyCodes = {
   esc: 27,
@@ -160,11 +160,11 @@ export var keyCodes = {
   n: 78,
   p: 80
 };
-export var PopperPlacements = ['auto-start', 'auto', 'auto-end', 'top-start', 'top', 'top-end', 'right-start', 'right', 'right-end', 'bottom-end', 'bottom', 'bottom-start', 'left-end', 'left', 'left-start'];
-export var canUseDOM = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
+export var PopperPlacements = ["auto-start", "auto", "auto-end", "top-start", "top", "top-end", "right-start", "right", "right-end", "bottom-end", "bottom", "bottom-start", "left-end", "left", "left-start"];
+export var canUseDOM = !!(typeof window !== "undefined" && window.document && window.document.createElement);
 export function isReactRefObj(target) {
-  if (target && typeof target === 'object') {
-    return 'current' in target;
+  if (target && typeof target === "object") {
+    return "current" in target;
   }
 
   return false;
@@ -172,7 +172,7 @@ export function isReactRefObj(target) {
 
 function getTag(value) {
   if (value == null) {
-    return value === undefined ? '[object Undefined]' : '[object Null]';
+    return value === undefined ? "[object Undefined]" : "[object Null]";
   }
 
   return Object.prototype.toString.call(value);
@@ -182,30 +182,30 @@ export function toNumber(value) {
   var type = typeof value;
   var NAN = 0 / 0;
 
-  if (type === 'number') {
+  if (type === "number") {
     return value;
   }
 
-  if (type === 'symbol' || type === 'object' && getTag(value) === '[object Symbol]') {
+  if (type === "symbol" || type === "object" && getTag(value) === "[object Symbol]") {
     return NAN;
   }
 
   if (isObject(value)) {
-    var other = typeof value.valueOf === 'function' ? value.valueOf() : value;
+    var other = typeof value.valueOf === "function" ? value.valueOf() : value;
     value = isObject(other) ? "" + other : other;
   }
 
-  if (type !== 'string') {
+  if (type !== "string") {
     return value === 0 ? value : +value;
   }
 
-  value = value.replace(/^\s+|\s+$/g, '');
+  value = value.replace(/^\s+|\s+$/g, "");
   var isBinary = /^0b[01]+$/i.test(value);
   return isBinary || /^0o[0-7]+$/i.test(value) ? parseInt(value.slice(2), isBinary ? 2 : 8) : /^[-+]0x[0-9a-f]+$/i.test(value) ? NAN : +value;
 }
 export function isObject(value) {
   var type = typeof value;
-  return value != null && (type === 'object' || type === 'function');
+  return value != null && (type === "object" || type === "function");
 }
 export function isFunction(value) {
   if (!isObject(value)) {
@@ -213,7 +213,7 @@ export function isFunction(value) {
   }
 
   var tag = getTag(value);
-  return tag === '[object Function]' || tag === '[object AsyncFunction]' || tag === '[object GeneratorFunction]' || tag === '[object Proxy]';
+  return tag === "[object Function]" || tag === "[object AsyncFunction]" || tag === "[object GeneratorFunction]" || tag === "[object Proxy]";
 }
 export function findDOMElements(target) {
   if (isReactRefObj(target)) {
@@ -224,7 +224,7 @@ export function findDOMElements(target) {
     return target();
   }
 
-  if (typeof target === 'string' && canUseDOM) {
+  if (typeof target === "string" && canUseDOM) {
     var selection = document.querySelectorAll(target);
 
     if (!selection.length) {
@@ -245,7 +245,7 @@ export function isArrayOrNodeList(els) {
     return false;
   }
 
-  return Array.isArray(els) || canUseDOM && typeof els.length === 'number';
+  return Array.isArray(els) || canUseDOM && typeof els.length === "number";
 }
 export function getTarget(target, allElements) {
   var els = findDOMElements(target);
@@ -268,7 +268,7 @@ export function getTarget(target, allElements) {
     return els;
   }
 }
-export var defaultToggleEvents = ['touchstart', 'click'];
+export var defaultToggleEvents = ["touchstart", "click"];
 export function addMultipleEventListeners(_els, handler, _events, useCapture) {
   var els = _els;
 
@@ -278,11 +278,11 @@ export function addMultipleEventListeners(_els, handler, _events, useCapture) {
 
   var events = _events;
 
-  if (typeof events === 'string') {
+  if (typeof events === "string") {
     events = events.split(/\s+/);
   }
 
-  if (!isArrayOrNodeList(els) || typeof handler !== 'function' || !Array.isArray(events)) {
+  if (!isArrayOrNodeList(els) || typeof handler !== "function" || !Array.isArray(events)) {
     throw new Error("\n      The first argument of this function must be DOM node or an array on DOM nodes or NodeList.\n      The second must be a function.\n      The third is a string or an array of strings that represents DOM events\n    ");
   }
 
@@ -299,4 +299,4 @@ export function addMultipleEventListeners(_els, handler, _events, useCapture) {
     });
   };
 }
-export var focusableElements = ['a[href]', 'area[href]', 'input:not([disabled]):not([type=hidden])', 'select:not([disabled])', 'textarea:not([disabled])', 'button:not([disabled])', 'object', 'embed', '[tabindex]:not(.modal)', 'audio[controls]', 'video[controls]', '[contenteditable]:not([contenteditable="false"])'];
+export var focusableElements = ["a[href]", "area[href]", "input:not([disabled]):not([type=hidden])", "select:not([disabled])", "textarea:not([disabled])", "button:not([disabled])", "object", "embed", "[tabindex]:not(.modal)", "audio[controls]", "video[controls]", '[contenteditable]:not([contenteditable="false"])'];

@@ -1,5 +1,5 @@
 (function () {
-  if (typeof window !== 'object' || typeof window.CustomEvent === 'function') return;
+  if (typeof window !== "object" || typeof window.CustomEvent === "function") return;
 
   var CustomEvent = function CustomEvent(event, params) {
     params = params || {
@@ -7,7 +7,7 @@
       cancelable: false,
       detail: null
     };
-    var evt = document.createEvent('CustomEvent');
+    var evt = document.createEvent("CustomEvent");
     evt.initCustomEvent(event, params.bubbles, params.cancelable, params.detail);
     return evt;
   };
@@ -16,7 +16,7 @@
 })();
 
 (function () {
-  if (typeof Object.values === 'function') return;
+  if (typeof Object.values === "function") return;
 
   var values = function values(O) {
     return Object.keys(O).map(function (key) {

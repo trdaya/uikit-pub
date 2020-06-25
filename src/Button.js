@@ -2,14 +2,14 @@ import styled from "styled-components";
 import PropTypes from "prop-types";
 
 const Button = styled.button`
-  border: ${p =>
+  border: ${(p) =>
     p.variant === "plain"
       ? "none"
       : p.variant === "secondary"
       ? "2px solid green"
       : "2px solid lightblue"};
 
-  padding: ${p =>
+  padding: ${(p) =>
     p.size === "tiny"
       ? "5px 10px"
       : p.size === "small"
@@ -24,12 +24,12 @@ const Button = styled.button`
 
 Button.defaultProps = {
   variant: "primary",
-  size: "medium"
+  size: "medium",
 };
 
 Button.propTypes = {
   variant: PropTypes.oneOf(["primary", "secondary", "plain"]),
   size: PropTypes.oneOf(["tiny", "small", "medium", "big", "huge"]),
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
 };
 export default Button;
