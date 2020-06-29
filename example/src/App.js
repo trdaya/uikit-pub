@@ -1,10 +1,10 @@
 import React from 'react'
 
-import { ExampleComponent } from 'uikit'
+import { Button } from 'uikit'
 import 'uikit/dist/index.css'
 
 const App = () => {
-  return <ExampleComponent text="Create React Library Exampleeee 😄" />
+  return <Button text="Create React Library Example custom button 😄" />
 }
 
 export default App
