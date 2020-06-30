@@ -1,6 +1,6 @@
 import React from 'react'
 
-import {Button, ButtonTypes} from '@trdaya/uikit'
+import {Button, ButtonTypes} from 'uikit-personal'
 // import 'uikit/dist/index.css' // TODO check giving error
 
 const App = () => {
