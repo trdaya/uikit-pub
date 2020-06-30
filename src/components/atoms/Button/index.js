@@ -7,9 +7,7 @@ import { getRem } from '../../../constants/css'
 
 const Wrapper = styled.button`
   color: ${(p) =>
-    p.type === Types.SECONDARY
-      ? theme.colors.visitedRed
-      : theme.colors.brightGreen};
+    p.type === Types.SECONDARY ? theme.colors.postYellow : 'purple'};
   padding: ${getRem(10)};
   border: ${getRem(2)} solid black;
 `
