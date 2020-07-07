@@ -5,3 +5,5 @@ node_js:
 branches:
   only:
     - approach-3
+script:
+  - npm test
