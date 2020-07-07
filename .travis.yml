@@ -6,4 +6,4 @@ branches:
   only:
     - approach-3
 script:
-  - npm test
+  - npm test:unit
