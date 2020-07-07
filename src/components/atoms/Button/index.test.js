@@ -5,6 +5,6 @@ describe('Button', () => {
     expect(Button).toBeTruthy()
   });
   it('is false', () => {
-    expect(false).toEqual(true)
+    expect(false).toBeFalsy()
   })
 })
